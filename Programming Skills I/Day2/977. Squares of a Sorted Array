@@ -1,0 +1,14 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Ying Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        for(int i = 0 ; i < nums.size() ; i++){
+            nums[i] = nums[i] * nums[i];
+        }
+        sort(nums.begin() , nums.end());
+        return nums;
+    }
+};
