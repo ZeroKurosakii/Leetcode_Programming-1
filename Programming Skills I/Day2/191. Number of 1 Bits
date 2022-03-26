@@ -1,0 +1,19 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int count = 0;
+        while(n > 0){
+            int tmp = n % 2;
+            if(tmp == 1){
+                count++;
+            }
+            n = n / 2;
+        }
+        return count;
+    }
+};
