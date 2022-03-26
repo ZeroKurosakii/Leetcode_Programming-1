@@ -1,0 +1,24 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Ying Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        int arr[6];
+        int tmp = n;
+        int cnt = 0;
+        while(tmp != 0){
+            arr[cnt] = tmp % 10;
+            tmp = tmp / 10;
+            cnt++;
+        }
+        int product = 1 , sum = 0;
+        for(int i = 0 ; i < cnt ; i++){
+            product *= arr[i];
+            sum += arr[i];
+        }
+        return product - sum;
+    }
+};
