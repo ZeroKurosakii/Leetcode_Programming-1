@@ -1,0 +1,20 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+
+int cmp(const int a , const int b){
+    return a > b;
+}
+class Solution {
+public:
+    int largestPerimeter(vector<int>& nums) {
+        sort(nums.begin() , nums.end() , cmp);
+        for(int i = 2 ; i < nums.size() ; i++){
+            if((nums[i]+nums[i-1]) > nums[i-2]){
+                return nums[i] + nums[i-1] + nums[i-2];
+            }
+        }
+        return 0;
+    }
+};
