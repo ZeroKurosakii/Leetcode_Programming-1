@@ -1,0 +1,18 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Ying Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+
+class Solution {
+public:
+    int tribonacci(int n) {
+        long long int tribo[38];
+        tribo[0] = 0;
+        tribo[1] = 1;
+        tribo[2] = 1;
+        for(int i = 3 ; i < 38 ; i++){
+            tribo[i] = tribo[i-1] + tribo[i-2] + tribo[i-3];
+        }
+        return tribo[n];
+    }
+};
