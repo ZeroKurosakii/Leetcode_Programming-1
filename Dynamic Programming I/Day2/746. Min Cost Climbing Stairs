@@ -1,0 +1,17 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int climb[1001];
+        climb[0] = cost[0];
+        climb[1] = cost[1];
+        for(int i = 2 ; i < cost.size() ; i ++){
+            climb[i] = min(climb[i-1] , climb[i-2]) + cost[i];
+        }
+        climb[cost.size()] = min(climb[cost.size()-1] , climb[cost.size()-2]);
+        return climb[cost.size()];
+    }
+};
