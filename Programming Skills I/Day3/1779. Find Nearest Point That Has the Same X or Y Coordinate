@@ -10,20 +10,19 @@ public:
         int pos;
         int check = 0;
         for(int i = 0 ; i < points.size() ; i++){
-            int a = points[i][0];
-            int b = points[i][1];
-            int tmp = abs(x-a) + abs(y-b);
-            if(a == x || b == y)
-            if(tmp < nearest){
-                pos = i;
-                check = 1;
-                nearest = tmp;
+            int tmp;
+            if(points[i][0] == x || points[i][1]==y){
+                tmp = abs((points[i][0] - x)) + abs((points[i][1]) - y);
+                if(tmp < nearest){
+                    nearest = tmp;
+                    pos = i;
+                    check = 1;
+                }
             }
         }
-        if(nearest == pow(2,31) - 1){
+        if(check == 0){
             return -1;
         }
-        else
         return pos;
     }
 };
