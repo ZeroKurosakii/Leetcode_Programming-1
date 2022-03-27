@@ -1,0 +1,17 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Ying Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+
+class Solution {
+public:
+    int fib(int n) {
+        int fibo[31];
+        fibo[0] = 0;
+        fibo[1] = 1;
+        for(int i = 2 ; i < 31 ; i++){
+            fibo[i] = fibo[i-1] + fibo[i-2];
+        }
+        return fibo[n];
+    }
+};
