@@ -1,0 +1,21 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        set<int> s ;
+        for(int i = 0 ; i < nums.size() ; i++){
+            s.insert(nums[i]);
+        }
+        if(s.size() == nums.size()){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+        return 0;
+    }
+};
