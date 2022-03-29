@@ -5,17 +5,19 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        set<int> set1;
+        map<int , int> check;
         while(1){
+            auto iter = check.find(n);
+            if(iter != check.end()){
+                if(iter->second == 1){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            }
+            check[n] = n;
             n = HappyNumber(n);
-            if(n == 1){
-                return 1;
-            }
-            auto iter = set1.find(n);
-            if(iter != set1.end()){
-                return 0;
-            }
-            set1.insert(n);
         }
         return 1;
     }
