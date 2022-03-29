@@ -1,0 +1,22 @@
+//Author:ZeroKurosakii
+//張竣傑 @ National Yang  Ming  Chiao Tung University dep.Civil Engineering
+// Coding  on 2022/03/29
+
+class Solution {
+public:
+    string reverseWords(string s) {
+        int n = s.length();
+        if(n==0){
+            return s;
+        }
+        stringstream ss(s);
+        string inter;
+        string ans = "";
+        while(getline(ss , inter , ' ')){
+            reverse(inter.begin() , inter.end());
+            ans = ans + inter;
+            ans = ans + " ";
+        }
+        return ans.substr(0,n);
+    }
+};
