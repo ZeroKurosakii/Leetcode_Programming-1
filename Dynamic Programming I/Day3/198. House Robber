@@ -1,0 +1,27 @@
+//Author:ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.Civil Engineering
+//Coding on 2022/03/29
+
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int length = nums.size();
+        if(length <= 0){
+            return 0;
+        }
+        if(length == 1){
+            return nums[0];
+        }
+        if(length == 2){
+            return max(nums[0],nums[1]);
+        }
+        int dp[500];
+        dp[0] = nums[0];
+        dp[1] = max(nums[1] , nums[0]);
+        int i;
+        for(i = 2 ; i < length ; i++){
+            dp[i] = max(dp[i-2] + nums[i] , dp[i-1]) ;
+        }
+        return dp[i-1];
+    }
+};
