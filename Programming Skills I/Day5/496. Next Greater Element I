@@ -1,0 +1,24 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/30
+
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        vector<int> ans;
+        for(int i = 0 ; i < n ; i++){
+            auto tmp = find(nums2.begin() , nums2.end() , nums1[i]);
+            for(auto it = tmp ; it != nums2.end() ; it++){
+                if(*it > nums1[i]){
+                    ans.push_back(*it);
+                    break;
+                }
+                if(it == nums2.end()-1){
+                    ans.push_back(-1);
+                }
+            }
+        }
+        return ans;
+    }
+};
