@@ -1,0 +1,24 @@
+//Author:ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.Civil Engineering
+//Coding on 2022/03/29
+
+class Solution {
+public:
+    int deleteAndEarn(vector<int>& nums) {
+        int length = nums.size();
+        if(length == 0){
+            return 0;
+        }
+        vector<int> dp(10001 , 0);
+        vector<int> sums(10001,0);
+        for(int i = 0 ; i < length ; i++){
+            sums[nums[i]] = sums[nums[i]] + nums[i];
+        }
+        dp[0] = 0;
+        dp[1] = sums[1];
+        for(int i = 2 ; i < sums.size() ; i++){
+            dp[i] = max(dp[i-2] + sums[i] , dp[i-1]);
+        }
+        return dp[sums.size()-1];
+    }
+};
