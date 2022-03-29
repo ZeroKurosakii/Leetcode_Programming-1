@@ -1,0 +1,20 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/29
+
+
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ans;
+        for(int i = 0 ; i <= 1000 ; i++){
+            int tmp1 = count(nums1.begin() , nums1.end() , i);
+            int tmp2 = count(nums2.begin() , nums2.end() , i);
+            int times = min(tmp1 , tmp2);
+            for(int j = 0 ; j < times ; j++){
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
