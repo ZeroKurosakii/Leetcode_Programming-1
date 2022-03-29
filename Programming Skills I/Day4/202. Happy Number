@@ -1,0 +1,30 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/29
+
+class Solution {
+public:
+    bool isHappy(int n) {
+        set<int> set1;
+        while(1){
+            n = HappyNumber(n);
+            if(n == 1){
+                return 1;
+            }
+            auto iter = set1.find(n);
+            if(iter != set1.end()){
+                return 0;
+            }
+            set1.insert(n);
+        }
+        return 1;
+    }
+    int HappyNumber(int n){
+        int ans = 0;
+        while(n != 0){
+            ans = ans + (n % 10) *(n % 10);
+            n = n / 10;
+        }
+        return ans;
+    }
+};
