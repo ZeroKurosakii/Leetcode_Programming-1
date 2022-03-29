@@ -1,0 +1,37 @@
+//Author:ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.Civil Engineering
+// Coding on 2022/03/29
+
+class Solution {
+public:
+    bool areAlmostEqual(string s1, string s2) {
+        int error = 0;
+        int pos1 = -1 , pos2 = -1;
+        int tof = 1;
+        for(int i = 0 ; i < s1.length() ; i++){
+            if(s1[i] != s2[i]){
+                if(pos1 == -1){
+                    pos1 = i;
+                }
+                else{
+                    pos2 = i;
+                }
+                error++;
+            }
+            if(error > 2){
+            return false;
+            }
+        }
+        if(error == 0){
+            return true;
+        }
+        if(error == 2)
+        swap(s1[pos1] , s1[pos2]);
+        for(int i = 0 ; i < s1.length() ; i++){
+            if(s1[i] != s2[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
