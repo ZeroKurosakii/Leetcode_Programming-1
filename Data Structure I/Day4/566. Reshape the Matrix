@@ -1,0 +1,32 @@
+//Author:ZeroKurosakii
+//張竣傑 @ National Yang Ming Chiao Tung University dep.Civil Engineering
+//Coding on 2022/03/30
+
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+        if(mat.size() == 0){
+            return mat;
+        }
+        int m = mat.size();
+        int n = mat[0].size();
+        if(m*n != r*c){
+            return mat;
+        }
+        vector<int> reshape;
+        for(int i = 0 ; i < m ; i++){
+            for(int j = 0 ; j < n ; j++){
+                reshape.push_back(mat[i][j]);
+            }
+        }
+        vector<vector<int>> ans(r , vector<int>(c));
+        int cnt = 0;
+        for(int i = 0 ; i < r ; i++){
+            for(int j = 0 ; j < c ; j++){
+                ans[i][j] = reshape[cnt];
+                cnt++;
+            }
+        }
+        return ans;
+    }
+};
